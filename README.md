@@ -24,21 +24,21 @@ Copy to your vendor directory and link up the .js file.
 
 ```handlebars
 {{#ivy-tabs as |tabs|}}
-  {{#ivy-tab-list tabsContainer=tabs as |list|}}
-    {{#ivy-tab tabList=list}}Foo{{/ivy-tab}}
-    {{#ivy-tab tabList=list}}Bar{{/ivy-tab}}
-    {{#ivy-tab tabList=list}}Baz{{/ivy-tab}}
+  {{#ivy-tab-list ivy-tabs=tabs as |list|}}
+    {{#ivy-tab ivy-tab-list=list}}Foo{{/ivy-tab}}
+    {{#ivy-tab ivy-tab-list=list}}Bar{{/ivy-tab}}
+    {{#ivy-tab ivy-tab-list=list}}Baz{{/ivy-tab}}
   {{/ivy-tab-list}}
 
-  {{#ivy-tab-panel tabsContainer=tabs}}
+  {{#ivy-tab-panel ivy-tabs=tabs}}
     <h2>Foo</h2>
   {{/ivy-tab-panel}}
 
-  {{#ivy-tab-panel tabsContainer=tabs}}
+  {{#ivy-tab-panel ivy-tabs=tabs}}
     <h2>Bar</h2>
   {{/ivy-tab-panel}}
 
-  {{#ivy-tab-panel tabsContainer=tabs}}
+  {{#ivy-tab-panel ivy-tabs=tabs}}
     <h2>Baz</h2>
   {{/ivy-tab-panel}}
 {{/ivy-tabs}}

@@ -132,8 +132,8 @@ export default Ember.Component.extend({
    * @type Boolean
    */
   isSelected: Ember.computed(function() {
-    return this.get('tabList.selectedTab') === this;
-  }).property('tabList.selectedTab'),
+    return this.get('ivy-tab-list.selectedTab') === this;
+  }).property('ivy-tab-list.selectedTab'),
 
   /**
    * Called when the user clicks on the tab. Selects this tab.
@@ -141,16 +141,16 @@ export default Ember.Component.extend({
    * @method select
    */
   select: Ember.on('click', 'touchEnd', function() {
-    this.get('tabList').selectTab(this);
+    this.get('ivy-tab-list').selectTab(this);
   }),
 
   /**
    * The `ivy-tab-list` component this tab belongs to.
    *
-   * @property tabList
+   * @property ivy-tab-list
    * @type IvyTabs.IvyTabListComponent
    */
-  tabList: null,
+  'ivy-tab-list': null,
 
   /**
    * The `ivy-tab-panel` associated with this tab.
@@ -170,7 +170,7 @@ export default Ember.Component.extend({
    * @type Array | IvyTabs.IvyTabPanelComponent
    * @readOnly
    */
-  tabPanels: Ember.computed.alias('tabsContainer.tabPanels').readOnly(),
+  tabPanels: Ember.computed.alias('ivy-tabs.tabPanels').readOnly(),
 
   /**
    * The array of all `ivy-tab` instances within the `ivy-tab-list` component.
@@ -179,22 +179,22 @@ export default Ember.Component.extend({
    * @type Array | IvyTabs.IvyTabComponent
    * @readOnly
    */
-  tabs: Ember.computed.alias('tabList.tabs').readOnly(),
+  tabs: Ember.computed.alias('ivy-tab-list.tabs').readOnly(),
 
   /**
    * The `ivy-tabs` component.
    *
-   * @property tabsContainer
+   * @property ivy-tabs
    * @type IvyTabs.IvyTabsComponent
    * @readOnly
    */
-  tabsContainer: Ember.computed.alias('tabList.tabsContainer').readOnly(),
+  'ivy-tabs': Ember.computed.alias('ivy-tab-list.ivy-tabs').readOnly(),
 
   _registerWithTabList: function() {
-    this.get('tabList').registerTab(this);
+    this.get('ivy-tab-list').registerTab(this);
   },
 
   _unregisterWithTabList: function() {
-    this.get('tabList').unregisterTab(this);
+    this.get('ivy-tab-list').unregisterTab(this);
   }
 });

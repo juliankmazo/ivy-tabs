@@ -37,7 +37,7 @@ export default Ember.Component.extend({
    * @param {IvyTabs.IvyTabListComponent} tabList
    */
   registerTabList: function(tabList) {
-    this.set('tabList', tabList);
+    this.set('ivy-tab-list', tabList);
     Ember.run.once(this, this._selectTabByIndex);
   },
 
@@ -58,7 +58,7 @@ export default Ember.Component.extend({
    * @param {IvyTabs.IvyTabListComponent} tabList
    */
   unregisterTabList: function(/* tabList */) {
-    this.set('tabList', null);
+    this.set('ivy-tab-list', null);
   },
 
   /**
@@ -78,6 +78,6 @@ export default Ember.Component.extend({
   _selectTabByIndex: function() {
     var selectedIndex = this.get('selected-index');
     if (Ember.isNone(selectedIndex)) { selectedIndex = 0; }
-    this.get('tabList').selectTabByIndex(selectedIndex);
+    this.get('ivy-tab-list').selectTabByIndex(selectedIndex);
   }
 });

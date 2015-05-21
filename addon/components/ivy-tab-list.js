@@ -118,7 +118,7 @@ export default Ember.Component.extend({
     this.selectTabByIndex(index);
   },
 
-  'selected-index': Ember.computed.alias('tabsContainer.selected-index'),
+  'selected-index': Ember.computed.alias('ivy-tabs.selected-index'),
 
   /**
    * The currently-selected `ivy-tab` instance.
@@ -153,10 +153,10 @@ export default Ember.Component.extend({
   /**
    * The `ivy-tabs` component.
    *
-   * @property tabsContainer
+   * @property ivy-tabs
    * @type IvyTabs.IvyTabsComponent
    */
-  tabsContainer: null,
+  'ivy-tabs': null,
 
   /**
    * Removes a tab from the `tabs` array.
@@ -174,10 +174,10 @@ export default Ember.Component.extend({
   }),
 
   _registerWithTabsContainer: function() {
-    this.get('tabsContainer').registerTabList(this);
+    this.get('ivy-tabs').registerTabList(this);
   },
 
   _unregisterWithTabsContainer: function() {
-    this.get('tabsContainer').unregisterTabList(this);
+    this.get('ivy-tabs').unregisterTabList(this);
   }
 });

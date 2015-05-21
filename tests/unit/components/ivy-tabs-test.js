@@ -7,12 +7,12 @@ moduleForComponent('ivy-tabs', {
 
 var basicTemplate =
   '{{#ivy-tabs selected-index=selectedIndex as |tabs|}}' +
-  '  {{#ivy-tab-list id="tablist" tabsContainer=tabs as |list|}}' +
-  '    {{#ivy-tab id="tab1" tabList=list}}tab 1{{/ivy-tab}}' +
-  '    {{#ivy-tab id="tab2" tabList=list}}tab 2{{/ivy-tab}}' +
+  '  {{#ivy-tab-list id="tablist" ivy-tabs=tabs as |list|}}' +
+  '    {{#ivy-tab id="tab1" ivy-tab-list=list}}tab 1{{/ivy-tab}}' +
+  '    {{#ivy-tab id="tab2" ivy-tab-list=list}}tab 2{{/ivy-tab}}' +
   '  {{/ivy-tab-list}}' +
-  '  {{#ivy-tab-panel id="panel1" tabsContainer=tabs}}panel 1{{/ivy-tab-panel}}' +
-  '  {{#ivy-tab-panel id="panel2" tabsContainer=tabs}}panel 2{{/ivy-tab-panel}}' +
+  '  {{#ivy-tab-panel id="panel1" ivy-tabs=tabs}}panel 1{{/ivy-tab-panel}}' +
+  '  {{#ivy-tab-panel id="panel2" ivy-tabs=tabs}}panel 2{{/ivy-tab-panel}}' +
   '{{/ivy-tabs}}';
 
 test('selects first tab by default', function(assert) {
@@ -98,13 +98,13 @@ test('deselected panel attributes', function(assert) {
 
 var eachTemplate =
   '{{#ivy-tabs selected-index=selectedIndex as |tabs|}}' +
-  '  {{#ivy-tab-list tabsContainer=tabs as |list|}}' +
+  '  {{#ivy-tab-list ivy-tabs=tabs as |list|}}' +
   '    {{#each item in items}}' +
-  '      {{#ivy-tab tabList=list}}{{item}}{{/ivy-tab}}' +
+  '      {{#ivy-tab ivy-tab-list=list}}{{item}}{{/ivy-tab}}' +
   '    {{/each}}' +
   '  {{/ivy-tab-list}}' +
   '  {{#each item in items}}' +
-  '    {{#ivy-tab-panel tabsContainer=tabs}}{{item}}{{/ivy-tab-panel}}' +
+  '    {{#ivy-tab-panel ivy-tabs=tabs}}{{item}}{{/ivy-tab-panel}}' +
   '  {{/each}}' +
   '{{/ivy-tabs}}';
 

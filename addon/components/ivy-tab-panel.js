@@ -109,11 +109,11 @@ export default Ember.Component.extend({
   /**
    * The `ivy-tab-list` component this panel belongs to.
    *
-   * @property tabList
+   * @property ivy-tab-list
    * @type IvyTabs.IvyTabListComponent
    * @readOnly
    */
-  tabList: Ember.computed.alias('tabsContainer.tabList').readOnly(),
+  'ivy-tab-list': Ember.computed.alias('ivy-tabs.ivy-tab-list').readOnly(),
 
   /**
    * The array of all `ivy-tab-panel` instances within the `ivy-tabs`
@@ -123,7 +123,7 @@ export default Ember.Component.extend({
    * @type Array | IvyTabs.IvyTabPanelComponent
    * @readOnly
    */
-  tabPanels: Ember.computed.alias('tabsContainer.tabPanels').readOnly(),
+  tabPanels: Ember.computed.alias('ivy-tabs.tabPanels').readOnly(),
 
   /**
    * The array of all `ivy-tab` instances within the `ivy-tab-list` component.
@@ -132,21 +132,21 @@ export default Ember.Component.extend({
    * @type Array | IvyTabs.IvyTabComponent
    * @readOnly
    */
-  tabs: Ember.computed.alias('tabList.tabs').readOnly(),
+  tabs: Ember.computed.alias('ivy-tab-list.tabs').readOnly(),
 
   /**
    * The `ivy-tabs` component.
    *
-   * @property tabsContainer
+   * @property ivy-tabs
    * @type IvyTabs.IvyTabsComponent
    */
-  tabsContainer: null,
+  'ivy-tabs': null,
 
   _registerWithTabsContainer: function() {
-    this.get('tabsContainer').registerTabPanel(this);
+    this.get('ivy-tabs').registerTabPanel(this);
   },
 
   _unregisterWithTabsContainer: function() {
-    this.get('tabsContainer').unregisterTabPanel(this);
+    this.get('ivy-tabs').unregisterTabPanel(this);
   }
 });
