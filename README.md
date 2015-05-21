@@ -23,33 +23,28 @@ Copy to your vendor directory and link up the .js file.
 ## Usage
 
 ```handlebars
-{{#ivy-tabs}}
-  {{#ivy-tab-list}}
-    {{#ivy-tab}}Foo{{/ivy-tab}}
-    {{#ivy-tab}}Bar{{/ivy-tab}}
-    {{#ivy-tab}}Baz{{/ivy-tab}}
+{{#ivy-tabs as |tabs|}}
+  {{#ivy-tab-list tabsContainer=tabs as |list|}}
+    {{#ivy-tab tabList=list}}Foo{{/ivy-tab}}
+    {{#ivy-tab tabList=list}}Bar{{/ivy-tab}}
+    {{#ivy-tab tabList=list}}Baz{{/ivy-tab}}
   {{/ivy-tab-list}}
 
-  {{#ivy-tab-panel}}
+  {{#ivy-tab-panel tabsContainer=tabs}}
     <h2>Foo</h2>
   {{/ivy-tab-panel}}
 
-  {{#ivy-tab-panel}}
+  {{#ivy-tab-panel tabsContainer=tabs}}
     <h2>Bar</h2>
   {{/ivy-tab-panel}}
 
-  {{#ivy-tab-panel}}
+  {{#ivy-tab-panel tabsContainer=tabs}}
     <h2>Baz</h2>
   {{/ivy-tab-panel}}
 {{/ivy-tabs}}
 ```
 
-Some things to note:
-
-  * Associations between tabs and tab-panes are inferred by order.
-  * `ivy-tab-list` must be an immediate child of `ivy-tabs`.
-  * `ivy-tab` must be an immediate child of `ivy-tab-list`.
-  * `ivy-tab-panel` must be an immediate child of `ivy-tabs`.
+Associations between tabs and tab-panes are inferred by order.
 
 ## Contributing
 
