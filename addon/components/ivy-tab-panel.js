@@ -12,7 +12,7 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   attributeBindings: ['aria-labelledby', 'role'],
   classNames: ['ivy-tab-panel'],
-  classNameBindings: ['active'],
+  classNameBindings: [''],
 
   init: function() {
     this._super();
@@ -64,7 +64,7 @@ export default Ember.Component.extend({
    * @type String
    * @default 'active'
    */
-  activeClass: 'active',
+  activeClass: '',
 
   /**
    * The index of this panel in the `ivy-tabs` component.
