@@ -13,7 +13,7 @@ export default Ember.Component.extend({
   tagName: 'li',
   attributeBindings: ['aria-controls', 'aria-expanded', 'aria-selected', 'role', 'selected', 'tabindex'],
   classNames: ['ivy-tab'],
-  classNameBindings: ['active'],
+  classNameBindings: [''],
 
   init: function() {
     this._super();
@@ -113,7 +113,7 @@ export default Ember.Component.extend({
    * @type String
    * @default 'active'
    */
-  activeClass: 'active',
+  activeClass: '',
 
   /**
    * The index of this tab in the `ivy-tab-list` component.
